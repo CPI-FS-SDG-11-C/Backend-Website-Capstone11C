@@ -16,7 +16,7 @@ exports.getAll = async (req, res) => {
       _id: subdistrict._id,
       nama_kec: subdistrict.nama_kec,
       kode_kec: subdistrict.kode_kec,
-      luas_kec: `${(subdistrict.luas_kec).toLocaleString('en-US')} km²`
+      luas_kec: `${(subdistrict.luas_kec).toLocaleString('en-US')} m²`
     }))
 
     return res.status(200).json({
