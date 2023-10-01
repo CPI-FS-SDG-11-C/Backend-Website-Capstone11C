@@ -6,6 +6,12 @@ async function getSubDistricts() {
     return subdistricts;
 }
 
+async function getSubDistrictById(subdistrictId) {
+    const subdistrict = await SubDistrict.findById(subdistrictId);
+    return subdistrict;
+}
+
 module.exports = {
-    getSubDistricts
+    getSubDistricts,
+    getSubDistrictById
 }

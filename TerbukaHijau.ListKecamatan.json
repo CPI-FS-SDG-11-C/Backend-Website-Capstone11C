@@ -1,0 +1,176 @@
+[{
+  "_id": {
+    "$oid": "651081f561bfb21610ada427"
+  },
+  "nama_kec": "BENOWO",
+  "kode_kec": "35.78.19",
+  "luas_kec": 29630000
+},
+{
+  "_id": {
+    "$oid": "651081f561bfb21610ada428"
+  },
+  "nama_kec": "BUBUTAN",
+  "kode_kec": "35.78.13",
+  "luas_kec": 29640000
+},
+{
+  "_id": {
+    "$oid": "651081f561bfb21610ada429"
+  },
+  "nama_kec": "BULAK",
+  "kode_kec": "35.78.29",
+  "luas_kec": 29650000
+},
+{
+  "_id": {
+    "$oid": "651081f561bfb21610ada42a"
+  },
+  "nama_kec": "DUKUH PAKIS",
+  "kode_kec": "35.78.21",
+  "luas_kec": 29660000
+},
+{
+  "_id": {
+    "$oid": "651081f561bfb21610ada42b"
+  },
+  "nama_kec": "GAYUNGAN",
+  "kode_kec": "35.78.22",
+  "luas_kec": 29670000
+},
+{
+  "_id": {
+    "$oid": "651081f561bfb21610ada42c"
+  },
+  "nama_kec": "GENTENG",
+  "kode_kec": "35.78.07",
+  "luas_kec": 29680000
+},
+{
+  "_id": {
+    "$oid": "651081f561bfb21610ada42d"
+  },
+  "nama_kec": "GUBENG",
+  "kode_kec": "35.78.08",
+  "luas_kec": 29690000
+},
+{
+  "_id": {
+    "$oid": "651081f561bfb21610ada42e"
+  },
+  "nama_kec": "GUNUNG ANYAR",
+  "kode_kec": "35.78.25",
+  "luas_kec": 29700000
+},
+{
+  "_id": {
+    "$oid": "651081f561bfb21610ada42f"
+  },
+  "nama_kec": "JAMBANGAN",
+  "kode_kec": "35.78.23",
+  "luas_kec": 29710000
+},
+{
+  "_id": {
+    "$oid": "651081f561bfb21610ada430"
+  },
+  "nama_kec": "KENJERAN",
+  "kode_kec": "35.78.17",
+  "luas_kec": 29720000
+},
+{
+  "_id": {
+    "$oid": "651081f561bfb21610ada431"
+  },
+  "nama_kec": "MULYOREJO",
+  "kode_kec": "35.78.26",
+  "luas_kec": 29730000
+},
+{
+  "_id": {
+    "$oid": "651081f561bfb21610ada432"
+  },
+  "nama_kec": "PAKAL",
+  "kode_kec": "35.78.30",
+  "luas_kec": 29740000
+},
+{
+  "_id": {
+    "$oid": "651081f561bfb21610ada433"
+  },
+  "nama_kec": "RUNGKUT",
+  "kode_kec": "35.78.03",
+  "luas_kec": 29750000
+},
+{
+  "_id": {
+    "$oid": "651081f561bfb21610ada434"
+  },
+  "nama_kec": "SAWAHAN",
+  "kode_kec": "35.78.06",
+  "luas_kec": 29760000
+},
+{
+  "_id": {
+    "$oid": "651081f561bfb21610ada435"
+  },
+  "nama_kec": "SEMAMPIR",
+  "kode_kec": "35.78.16",
+  "luas_kec": 29770000
+},
+{
+  "_id": {
+    "$oid": "651081f561bfb21610ada436"
+  },
+  "nama_kec": "SIMOKERTO",
+  "kode_kec": "35.78.11",
+  "luas_kec": 29780000
+},
+{
+  "_id": {
+    "$oid": "651081f561bfb21610ada437"
+  },
+  "nama_kec": "SUKOLILO",
+  "kode_kec": "35.78.09",
+  "luas_kec": 29790000
+},
+{
+  "_id": {
+    "$oid": "651081f561bfb21610ada438"
+  },
+  "nama_kec": "TAMBAKSARI",
+  "kode_kec": "35.78.10",
+  "luas_kec": 29800000
+},
+{
+  "_id": {
+    "$oid": "651081f561bfb21610ada439"
+  },
+  "nama_kec": "TEGALSARI",
+  "kode_kec": "35.78.05",
+  "luas_kec": 29810000
+},
+{
+  "_id": {
+    "$oid": "651081f561bfb21610ada43a"
+  },
+  "nama_kec": "TENGGILIS MEJOYO",
+  "kode_kec": "35.78.24",
+  "luas_kec": 29820000
+},
+{
+  "_id": {
+    "$oid": "651081f561bfb21610ada43b"
+  },
+  "nama_kec": "WONOCOLO",
+  "kode_kec": "35.78.02",
+  "luas_kec": 29830000
+},
+{
+  "_id": {
+    "$oid": "651081f561bfb21610ada43c"
+  },
+  "nama_kec": "WONOKROMO",
+  "kode_kec": "35.78.04",
+  "luas_kec": 29840000
+}]
