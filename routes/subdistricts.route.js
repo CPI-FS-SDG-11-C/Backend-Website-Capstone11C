@@ -1,6 +1,6 @@
 const router = require('express').Router();
 
-const { getAll, getSubDistrictById } = require('../controllers/subdistrict.controller');
+const { getAll, getSubDistrictById } = require('../controllers/subdistricts.controller');
 
 router.get('/', getAll);
 
