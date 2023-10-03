@@ -1,4 +1,4 @@
-const { getSubDistricts, getSubDistrictById } = require('../services/subdistrict.service');
+const { getSubDistricts, getSubDistrictById } = require('../services/subdistricts.service');
 
 exports.getAll = async (req, res) => {
   try {
