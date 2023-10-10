@@ -6,6 +6,8 @@ const rthSchema = new moongose.Schema({
     Nama: String,
     Lokasi: String,
     Luas: Number,
+    Gambar: String,
+    Deskripsi: String,
     kec_id: {
         type: moongose.Schema.Types.ObjectId,
         ref: 'SubDistrict'

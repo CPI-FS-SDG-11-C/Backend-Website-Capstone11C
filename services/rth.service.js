@@ -10,7 +10,13 @@ async function getRthByKecId(kecId) {
     return rths;
 }
 
+async function getDetailRth(rthId) {
+    const rths = await Rth.findById(rthId);
+    return rths;
+}
+
 module.exports = {
     getRth,
-    getRthByKecId
+    getRthByKecId,
+    getDetailRth
 }
