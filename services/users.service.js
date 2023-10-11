@@ -10,7 +10,13 @@ async function addUser(user) {
   return newUser;
 }
 
+async function getUserIdByUsername(username) {
+  const userId = await User.find({ username: username }, '_id');
+  return userId[0]._id;
+}
+
 module.exports = {
   getUser,
-  addUser
+  addUser,
+  getUserIdByUsername
 }

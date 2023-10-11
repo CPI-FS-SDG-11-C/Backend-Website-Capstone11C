@@ -1,9 +1,7 @@
 const jwt = require('jsonwebtoken');
-const User = require('../models/User');
 const { v4: uuidv4 } = require('uuid');
 const bycrypt = require('bcrypt');
 const { addUser, getUser } = require('../services/users.service');
-const { get } = require('mongoose');
 const saltRounds = 10;
 
 exports.register = async (req, res) => {
