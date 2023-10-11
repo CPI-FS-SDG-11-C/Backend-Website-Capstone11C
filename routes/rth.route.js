@@ -1,9 +1,9 @@
 const router = require('express').Router();
 
-const { getAll, getRthByKecId } = require('../controllers/rth.controller');
+const { getAll, getRthByKecId, getDetailRth} = require('../controllers/rth.controller');
 
 router.get('/', getAll);
-
-router.get('/:kecId', getRthByKecId);
+router.get('/subdistricts/:kecId', getRthByKecId);
+router.get('/rth/:rthId', getDetailRth);
 
 module.exports = router;
