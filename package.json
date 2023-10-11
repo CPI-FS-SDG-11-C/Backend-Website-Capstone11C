@@ -1,7 +1,7 @@
 {
   "name": "terbuka-hijau",
   "version": "1.0.0",
-  "description": "",
+  "description": "Repository untuk Backend Capstone GG3 Kelompok SDG-11-C",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
