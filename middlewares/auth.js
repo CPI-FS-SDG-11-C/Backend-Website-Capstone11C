@@ -19,7 +19,7 @@ exports.authentication = (req, res, next) => {
         message: 'Failed to authenticate token' });
     }
 
-    req.username = decoded.username;
+    req.username = decoded;
 
     next();
   });

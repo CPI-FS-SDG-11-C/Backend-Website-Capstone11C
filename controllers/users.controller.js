@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
 const { v4: uuidv4 } = require('uuid');
 const bycrypt = require('bcrypt');
-const { addUser, getUser } = require('../services/users.service');
+const { addUser, getUser, getProfile } = require('../services/users.service');
 const saltRounds = 10;
 
 exports.register = async (req, res) => {
@@ -77,4 +77,43 @@ exports.logout = async (req, res) => {
     'code': 200,
     'message': 'user successfully logged out'
   });
+}
+
+
+// get profile
+exports.profile = async (req, res) => {
+  try {
+    const {username, password} = req.username;
+    const user = await getProfile(username);
+
+    if (!user) {
+      return null;
+    }
+
+    const passwordMatch = await bycrypt.compare(password, user[0].password);
+  
+    if (!passwordMatch) {
+      return null;
+    }
+
+    const formatedProfile = {
+      username:user[0].username,
+      email : user[0].email,
+      phone_number : user[0].phone_number,
+    }
+
+    return res.status(200).json({
+      'status': 'success',
+      'code': 200,
+      'message': 'User profile data successfully retrieved.',
+      'data': formatedProfile
+    });
+  } catch (err) {
+    return res.status(500).json({
+      'status': 'failed Get Profile',
+      'code': 500,
+      'message': err.message
+    });
+    
+  }
 }
