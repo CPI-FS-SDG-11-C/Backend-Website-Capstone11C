@@ -19,6 +19,10 @@ const reviewSchema = new moongose.Schema({
         type: String,
         required: false,
     },
+    created_at: {
+        type: String,
+        required: true,
+    }
 });
 
 module.exports = moongose.model('Review', reviewSchema);

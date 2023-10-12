@@ -5,7 +5,6 @@ exports.addReview = async (req, res) => {
   try {
     const userId = await getUserIdByUsername(req.username);
     
-
     if (userId === undefined) {
       return res.status(401).json({
         'status': 'failed',
