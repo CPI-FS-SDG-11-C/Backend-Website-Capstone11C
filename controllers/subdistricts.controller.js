@@ -1,4 +1,4 @@
-const { getSubDistricts } = require('../services/subdistrict.service');
+const { getSubDistricts, getSubDistrictById } = require('../services/subdistricts.service');
 
 exports.getAll = async (req, res) => {
   try {
@@ -34,3 +34,31 @@ exports.getAll = async (req, res) => {
     });
   }
 }
+
+exports.getSubDistrictById = async (req, res) => {
+  try {
+    const subdistrictId = req.params.subdistrictId;
+    const subdistrict = await getSubDistrictById(subdistrictId);
+
+    if (!subdistrict) {
+      return res.status(404).json({
+        status: 'failed',
+        code: 404,
+        message: 'Kecamatan tidak ditemukan',
+      });
+    }
+
+    return res.status(200).json({
+      status: 'success',
+      code: 200,
+      message: 'Detail Kecamatan berhasil didapatkan',
+      data: subdistrict,
+    });
+  } catch (err) {
+    return res.status(500).json({
+      status: 'failed',
+      code: 500,
+      message: err.message,
+    });
+  }
+};
