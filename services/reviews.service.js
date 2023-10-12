@@ -7,6 +7,12 @@ async function addReview(review) {
     return newReview;
 }
 
+async function getReviewsByRthId(rthId) {
+    const reviews = await Review.find({ id_rth: rthId });
+    return reviews;
+}
+
 module.exports = {
-    addReview
+    addReview,
+    getReviewsByRthId
 }
