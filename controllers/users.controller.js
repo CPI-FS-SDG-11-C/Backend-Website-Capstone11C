@@ -83,18 +83,13 @@ exports.logout = async (req, res) => {
 // get profile
 exports.profile = async (req, res) => {
   try {
-    const {username, password} = req.username;
+    const  username = req.username;
     const user = await getProfile(username);
 
     if (!user) {
       return null;
     }
 
-    const passwordMatch = await bycrypt.compare(password, user[0].password);
-  
-    if (!passwordMatch) {
-      return null;
-    }
 
     const formatedProfile = {
       username:user[0].username,

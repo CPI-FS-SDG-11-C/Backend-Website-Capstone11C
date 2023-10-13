@@ -3,7 +3,7 @@ const { getUserIdByUsername } = require('../services/users.service');
 
 exports.addReview = async (req, res) => {
   try {
-    const {username} = req.username
+    const username = req.username
     const userId = await getUserIdByUsername(username);
     
 
