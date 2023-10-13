@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
 const { v4: uuidv4 } = require('uuid');
 const bycrypt = require('bcrypt');
-const { addUser, getUser, getProfile } = require('../services/users.service');
+const { addUser, getUser, getProfile, getUserIdByUsername, updateProfile } = require('../services/users.service');
 const saltRounds = 10;
 
 exports.register = async (req, res) => {
@@ -110,5 +110,64 @@ exports.profile = async (req, res) => {
       'message': err.message
     });
     
+  }
+}
+
+exports.updateProfile = async (req, res) => {
+try {
+  const usernameMID = req.username
+  console.log(usernameMID)
+  const userId = await getUserIdByUsername(usernameMID);
+  console.log(userId)
+  
+  if (userId === undefined) {
+    return res.status(401).json({
+      'status': 'failed',
+      'code': 401,
+      'message': 'User tidak ditemukan'
+    });
+  }
+
+  const updatedData = req.body
+  console.log(updatedData)
+  
+  if (!updatedData.username) {
+    return res.status(400).json({
+      'status': 'failed',
+      'code': 400,
+      'message': 'username tidak boleh kosong'
+    });
+  }
+  if (!updatedData.email) {
+    return res.status(400).json({
+      'status': 'failed',
+      'code': 400,
+      'message': 'email tidak boleh kosong'
+    });
+  }
+  if (!updatedData.phone_number) {
+    return res.status(400).json({
+      'status': 'failed',
+      'code': 400,
+      'message': 'Nomor Telepon tidak boleh kosong'
+    });
+  }
+
+  const updatedProfile = await updateProfile(userId, updatedData)
+
+  const newToken = jwt.sign({ username: updatedData.username }, process.env.SECRET_KEY, { expiresIn: '3h' });
+  return res.status(200).json({
+    'status': 'success',
+    'code': 200,
+    'message': 'Profile successfully updated',
+    'token' : newToken,
+    'data' : updatedProfile
+  });
+} catch (err) {
+    return res.status(500).json({
+      'status': 'failed',
+      'code': 500,
+      'message': err.message
+    });
   }
 }

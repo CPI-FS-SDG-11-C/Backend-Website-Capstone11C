@@ -20,9 +20,15 @@ async function getProfile(username) {
   return profile;
 }
 
+async function updateProfile(userId, updatedData) {
+  const updateProfile = await User.findByIdAndUpdate(userId, updatedData, { new: true });
+  return updateProfile;
+}
+
 module.exports = {
   getUser,
   addUser,
   getUserIdByUsername,
-  getProfile
+  getProfile,
+  updateProfile
 }
