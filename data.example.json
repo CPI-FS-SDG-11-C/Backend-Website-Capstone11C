@@ -1,0 +1,62 @@
+[
+    {
+        "nama": "Locker Space Coffe & Eatery",
+        "alamat": "Jl. Taman Apsari No.7, RT.004/RW.02, Embong Kaliasin, Kec. Genteng, Surabaya, Jawa Timur 60271",
+        "taman": "Taman Apsari"
+      },
+      {
+        "nama": "Arca Joko Dolog",
+        "alamat": "PPPV+24J, Jl. Taman Apsari, Embong Kaliasin, Kec. Genteng, Surabaya, Jawa Timur 60271",
+        "taman": "Taman Apsari"
+      },
+      {
+        "nama": "Lapangan Futsal Terbuka Taman Apsari",
+        "alamat": "Jl. Taman Apsari No.63, Embong Kaliasin, Kec. Genteng, Surabaya, Jawa Timur 60271",
+        "taman": "Taman Apsari"
+      },
+      {
+        "nama": "Wisata Air Taman Prestasi",
+        "alamat": "Jl. Ketabang Kali No.2-B, Ketabang, Kec. Genteng, Surabaya, Jawa Timur 60272",
+        "taman": "Taman Prestasi"
+      },
+      {
+        "nama": "Sakinah Tennis Club",
+        "alamat": "PPQV+5PH, Ketabang, Kec. Genteng, Surabaya, Jawa Timur 60272",
+        "taman": "Taman Prestasi"
+      },
+      {
+        "nama": "Monumen Pesawat Douglas A26 Invader TNI AU",
+        "alamat": "PPQV+2MF, Jl. Ketabang Kali, Ketabang, Kec. Genteng, Surabaya, Jawa Timur 60272",
+        "taman": "Taman Prestasi"
+      },
+      {
+        "nama": "Sentra Wisata Kuliner Taman Prestasi",
+        "alamat": "Jl. Ketabang Kali No.1, Ketabang, Kec. Genteng, Surabaya, Jawa Timur 60272",
+        "taman": "Taman Prestasi"
+      },
+      {
+        "nama": "Lapangan Futsal Taman Mayangkara",
+        "alamat": "MPVP+662, Wonokromo, Kec. Wonokromo, Surabaya, Jawa Timur 60243",
+        "taman": "Taman Mayangkara"
+      },
+      {
+        "nama": "Pasar Surya Pasar Bendul Merisi",
+        "alamat": "MPVP+9HC, Jl. Bendul Merisi, Jagir, Kec. Wonokromo, Surabaya, Jawa Timur 60239",
+        "taman": "Taman Mayangkara"
+      },
+      {
+        "nama": "Bubur Ayam Bandung Mang Ajay",
+        "alamat": "Jl. Kendal Sari Blok RK 73, Penjaringan Sari, Kec. Rungkut, Surabaya, Jawa Timur 60297",
+        "taman": "Taman Kebun Bibit Wonorejo"
+      },
+      {
+        "nama": "Hutan Bambu Keputih Surabaya",
+        "alamat": "PR42+8MH, Jl. Raya Marina Asri, Keputih, Kec. Sukolilo, Surabaya, Jawa Timur 60111",
+        "taman": "Taman Harmoni"
+      },
+      {
+        "nama": "Creative Public Space Keputih Surabaya",
+        "alamat": "Jl. Keputih No.141, RT.000/RW.00, Keputih, Kec. Sukolilo, Surabaya, Jawa Timur 60111",
+        "taman": "Taman Harmoni"
+      }
+]

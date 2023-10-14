@@ -4,7 +4,8 @@ const { getUserIdByUsername } = require('../services/users.service');
 
 exports.addReview = async (req, res) => {
   try {
-    const userId = await getUserIdByUsername(req.username);
+    const username = req.username
+    const userId = await getUserIdByUsername(username);
     
     if (userId === undefined) {
       return res.status(401).json({
