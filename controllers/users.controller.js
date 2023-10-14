@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
 const { v4: uuidv4 } = require('uuid');
 const bycrypt = require('bcrypt');
-const { addUser, getUser, getProfile, getUserIdByUsername, updateProfile, getUserIdByUsername } = require('../services/users.service');
+const { addUser, getUser, getProfile, getUserIdByUsername, updateProfile } = require('../services/users.service');
 const saltRounds = 10;
 const User = require('../models/User'); 
 
