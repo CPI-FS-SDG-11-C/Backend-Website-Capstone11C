@@ -3,6 +3,7 @@ const { v4: uuidv4 } = require('uuid');
 const bycrypt = require('bcrypt');
 const { addUser, getUser, getProfile, getUserIdByUsername, updateProfile } = require('../services/users.service');
 const saltRounds = 10;
+const User = require('../models/User'); 
 
 exports.register = async (req, res) => {
   try {
@@ -171,3 +172,53 @@ try {
     });
   }
 }
+
+exports.changepassword = async (req, res) => {
+  try {
+    const { username, currentPassword, newPassword } = req.body;
+
+    const user = await getUser(username);
+
+    if (user.length === 0) {
+      return res.status(404).json({
+        'status': 'failed',
+        'code': 404,
+        'message': 'User not found',
+      });
+    }
+
+    const match = await bycrypt.compare(currentPassword, user[0].password);
+
+    if (!match) {
+      return res.status(400).json({
+        'status': 'failed',
+        'code': 400,
+        'message': 'Current password is incorrect',
+      });
+    }
+
+    const userId = await getUserIdByUsername(username);
+
+    const saltRounds = 10;
+    const hashedNewPassword = await bycrypt.hash(newPassword, saltRounds);
+
+    await User.updateOne({ _id: userId }, { password: hashedNewPassword });
+
+    return res.status(200).json({
+      'status': 'success',
+      'code': 200,
+      'message': 'Password changed successfully',
+    });
+  } catch (err) {
+    return res.status(500).json({
+      'status': 'failed',
+      'code': 500,
+      'message': err.message,
+    });
+  }
+}
+
+
+
+
+
