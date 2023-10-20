@@ -18,8 +18,8 @@ exports.authentication = (req, res, next) => {
         code: 500, 
         message: 'Failed to authenticate token' });
     }
-
-    req.username = decoded.username;
+    
+    req.userId = decoded.userId;
 
     next();
   });

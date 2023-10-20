@@ -12,7 +12,7 @@ app.use(cors());
 
 mongoose.connect(process.env.MONGODB_URI)
   .then(() => {
-    console.log('Connected to MongoDB')
+    console.log('Connected to MongoDB Atlas')
   })
   .catch(err => {
     console.log(err)
