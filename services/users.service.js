@@ -1,6 +1,6 @@
 const User = require('../models/User');
 
-async function getUserByUsername(username) {
+async function getUser(username) {
   const user = await User.find({ username: username });
   return user;
 }
@@ -10,8 +10,13 @@ async function addUser(user) {
   return newUser;
 }
 
-async function getUserById(id) {
-  const profile = await User.find({ _id: id });
+async function getUserIdByUsername(username) {
+  const userId = await User.find({ username: username }, '_id');
+  return userId[0]._id;
+}
+
+async function getProfile(username) {
+  const profile = await User.find({ username: username });
   return profile;
 }
 
@@ -21,8 +26,9 @@ async function updateProfile(userId, updatedData) {
 }
 
 module.exports = {
-  getUserByUsername,
+  getUser,
   addUser,
-  getUserById,
+  getUserIdByUsername,
+  getProfile,
   updateProfile
 }

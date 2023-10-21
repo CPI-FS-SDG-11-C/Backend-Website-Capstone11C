@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
 const { v4: uuidv4 } = require('uuid');
 const bycrypt = require('bcrypt');
-const { addUser, getUserById, getUserByUsername, updateProfile } = require('../services/users.service');
+const { addUser, getUser, getProfile, getUserIdByUsername, updateProfile } = require('../services/users.service');
 const saltRounds = 10;
 const User = require('../models/User'); 
 
@@ -33,7 +33,7 @@ exports.login = async (req, res) => {
   try {
     const { username, password } = req.body;
 
-    const user = await getUserByUsername(username);
+    const user = await getUser(username);
 
     if (user.length === 0) {
       return res.status(404).json({
@@ -54,7 +54,7 @@ exports.login = async (req, res) => {
     }
 
     const token = jwt.sign(
-      { userId: user[0]._id , password: password },
+      { username: username, password: password },
       process.env.SECRET_KEY, { expiresIn: '3h' });
 
     return res.status(200).json({
@@ -80,15 +80,17 @@ exports.logout = async (req, res) => {
   });
 }
 
+
 // get profile
 exports.profile = async (req, res) => {
   try {
-    const userId = req.userId;
-    const user = await getUserById(userId);
+    const  username = req.username;
+    const user = await getProfile(username);
 
     if (!user) {
       return null;
     }
+
 
     const formatedProfile = {
       username:user[0].username,
@@ -114,7 +116,10 @@ exports.profile = async (req, res) => {
 
 exports.updateProfile = async (req, res) => {
 try {
-  const userId = req.userId;
+  const usernameMID = req.username
+  console.log(usernameMID)
+  const userId = await getUserIdByUsername(usernameMID);
+  console.log(userId)
   
   if (userId === undefined) {
     return res.status(401).json({
@@ -125,6 +130,7 @@ try {
   }
 
   const updatedData = req.body
+  console.log(updatedData)
   
   if (!updatedData.username) {
     return res.status(400).json({
@@ -150,12 +156,12 @@ try {
 
   const updatedProfile = await updateProfile(userId, updatedData)
 
-  // const newToken = jwt.sign({ username: updatedData.username }, process.env.SECRET_KEY, { expiresIn: '3h' });
+  const newToken = jwt.sign({ username: updatedData.username }, process.env.SECRET_KEY, { expiresIn: '3h' });
   return res.status(200).json({
     'status': 'success',
     'code': 200,
     'message': 'Profile successfully updated',
-    // 'token' : newToken,
+    'token' : newToken,
     'data' : updatedProfile
   });
 } catch (err) {
@@ -171,8 +177,7 @@ exports.changepassword = async (req, res) => {
   try {
     const { username, currentPassword, newPassword } = req.body;
 
-    const user = await getUserByUsername(username);
-    console.log(user);
+    const user = await getUser(username);
 
     if (user.length === 0) {
       return res.status(404).json({
@@ -192,7 +197,7 @@ exports.changepassword = async (req, res) => {
       });
     }
 
-    const userId = user[0]._id;
+    const userId = await getUserIdByUsername(username);
 
     const saltRounds = 10;
     const hashedNewPassword = await bycrypt.hash(newPassword, saltRounds);

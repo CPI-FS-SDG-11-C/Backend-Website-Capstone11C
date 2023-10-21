@@ -12,7 +12,13 @@ async function getReviewsByRthId(rthId) {
     return reviews;
 }
 
+async function getReviewsByUserId(userId) {
+    const reviews = await Review.find({ id_user: userId });
+    return reviews;
+}
+
 module.exports = {
     addReview,
-    getReviewsByRthId
+    getReviewsByRthId,
+    getReviewsByUserId
 }
