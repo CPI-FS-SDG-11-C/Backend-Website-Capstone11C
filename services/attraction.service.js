@@ -1,4 +1,4 @@
-const attraction = require('../models/attraction');
+const attraction = require('../models/Attraction');
 
 async function getAttraction() {
     const attractions = await attraction.find();
