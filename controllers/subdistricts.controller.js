@@ -1,5 +1,5 @@
 const { getSubDistricts, getSubDistrictById } = require('../services/subdistricts.service');
-const { getRthByKecId, getDetailRth } = require('../services/rth.service');
+const { getRthByKecId, getDIstrictAndRTH } = require('../services/rth.service');
 
 exports.getAll = async (req, res) => {
   try {
@@ -75,4 +75,21 @@ exports.getSubDistrictById = async (req, res) => {
   }
 };
 
-
+exports.getDIstrictAndRTH = async (req, res) => {
+  try {
+    const data = await getDIstrictAndRTH();
+    return res.status(200).json({
+      'status': 'success',
+      'code': 200,
+      'message': 'Kecamatan berhasil didapatkan',
+      'data': data
+    });
+  }
+  catch (err) {
+    return res.status(500).json({
+      'status': 'failed',
+      'code': 500,
+      'message': err.message
+    });
+  }
+}
