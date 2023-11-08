@@ -1,4 +1,5 @@
 const { getSubDistricts, getSubDistrictById } = require('../services/subdistricts.service');
+const { getRthByKecId, getDIstrictAndRTH } = require('../services/rth.service');
 
 exports.getAll = async (req, res) => {
   try {
@@ -39,7 +40,7 @@ exports.getSubDistrictById = async (req, res) => {
   try {
     const subdistrictId = req.params.subdistrictId;
     const subdistrict = await getSubDistrictById(subdistrictId);
-
+    
     if (!subdistrict) {
       return res.status(404).json({
         status: 'failed',
@@ -48,11 +49,22 @@ exports.getSubDistrictById = async (req, res) => {
       });
     }
 
+
+    const rth = await getRthByKecId(subdistrictId);
+    const sumRTH = rth.reduce((total, item) => total + item.Luas, 0);
+    const resRTH = (sumRTH /subdistrict.luas_kec) * 100
+
+    console.log(sumRTH)
+    console.log(subdistrict.luas_kec)
+    console.log(resRTH.toFixed(2))
+    // console.log(resRTH)
+
     return res.status(200).json({
       status: 'success',
       code: 200,
       message: 'Detail Kecamatan berhasil didapatkan',
-      data: subdistrict,
+      persentaseRTH : `${(resRTH.toFixed(2)).toLocaleString('en-US')}%`,
+      data: subdistrict
     });
   } catch (err) {
     return res.status(500).json({
@@ -62,3 +74,22 @@ exports.getSubDistrictById = async (req, res) => {
     });
   }
 };
+
+exports.getDIstrictAndRTH = async (req, res) => {
+  try {
+    const data = await getDIstrictAndRTH();
+    return res.status(200).json({
+      'status': 'success',
+      'code': 200,
+      'message': 'Kecamatan berhasil didapatkan',
+      'data': data
+    });
+  }
+  catch (err) {
+    return res.status(500).json({
+      'status': 'failed',
+      'code': 500,
+      'message': err.message
+    });
+  }
+}
