@@ -95,7 +95,7 @@ exports.getReviewsByRthId = async (req, res) => {
 
 exports.getReviewsByUserId = async (req, res) => {
   try {
-    const userId = req.params.userId;
+    const userId = req.userId;
     
     if (!userId) {
       return res.status(400).json({
@@ -106,12 +106,6 @@ exports.getReviewsByUserId = async (req, res) => {
     }
 
     const reviews = await getReviewsByUserId(userId);
-
-    // const reviewByUserId = { 
-    //   reviews: [
-    //     ...reviews
-    //   ]
-    // };
 
     return res.status(200).json({
       'status': 'success',

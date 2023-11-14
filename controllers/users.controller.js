@@ -169,9 +169,27 @@ exports.updateProfile = async (req, res) => {
 
 exports.changepassword = async (req, res) => {
   try {
-    const { username, currentPassword, newPassword } = req.body;
+    const userId = req.userId;
 
-    const user = await getUserByUsername(username);
+    if (userId === undefined) {
+      return res.status(401).json({
+        'status': 'failed',
+        'code': 401,
+        'message': 'User tidak ditemukan'
+      });
+    }
+
+    const { currentPassword, newPassword, confirmPassword } = req.body;
+
+    if (newPassword !== confirmPassword) {
+      return res.status(400).json({
+        'status': 'failed',
+        'code': 400,
+        'message': 'New password and confirm password do not match',
+      });
+    }
+
+    const user = await getUserById(userId);
     console.log(user);
 
     if (user.length === 0) {
@@ -191,8 +209,6 @@ exports.changepassword = async (req, res) => {
         'message': 'Current password is incorrect',
       });
     }
-
-    const userId = user[0]._id;
 
     const saltRounds = 10;
     const hashedNewPassword = await bycrypt.hash(newPassword, saltRounds);
