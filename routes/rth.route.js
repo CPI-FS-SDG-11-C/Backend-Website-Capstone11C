@@ -9,7 +9,7 @@ router.get('/subdistricts/:kecId', getRthByKecId);
 router.get('/rth/:rthId', getDetailRth);
 router.post('/:rthId/reviews', authentication, addReview);
 router.get('/:rthId/reviews', getReviewsByRthId);
-router.get('/:userId/userreviews', getReviewsByUserId);
+router.get('/userreviews', authentication, getReviewsByUserId);
 
 
 
