@@ -1,13 +1,16 @@
 const { addReview, getReviewsByRthId, getReviewsByUserId } = require('../services/reviews.service');
 const { getDetailRth } = require('../services/rth.service');
-const { getUserIdByUsername } = require('../services/users.service');
+const { getUserById } = require('../services/users.service');
 
 exports.addReview = async (req, res) => {
   try {
-    const username = req.username
-    const userId = await getUserIdByUsername(username);
+    const userId = req.userId;
+    const user = await getUserById(userId);
+    const userObj = {
+      id: user[0]._id,
+      username: user[0].username
+    };
     
-
     if (userId === undefined) {
       return res.status(401).json({
         'status': 'failed',
@@ -36,7 +39,7 @@ exports.addReview = async (req, res) => {
       });
     }
 
-    const newReview = await addReview({ id_user: userId, id_rth: rthId, rating, comment: comment || '' });
+    const newReview = await addReview({ user: userObj, id_rth: rthId, rating, comment: comment || '' });
 
     return res.status(201).json({
       'status': 'success',

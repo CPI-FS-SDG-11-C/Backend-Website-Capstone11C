@@ -1,8 +1,8 @@
 const moongose = require('mongoose');
 
 const reviewSchema = new moongose.Schema({
-  id_user: {
-    type: String,
+  user: {
+    type: Object,
     required: true,
   },
   id_rth: {
